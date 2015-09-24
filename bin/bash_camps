@@ -1,0 +1,55 @@
+function camp_top() {
+  if [ -n "$1" ]
+  then
+      cd ~/camp${1}
+  elif [[ $(pwd) =~ 'camp' ]]
+  then
+      until [[ $(basename $(pwd)) =~ '^camp[[:digit:]]+' ]]
+      do
+          if [[ $(pwd) =~ 'camp' ]]
+          then
+              cd ..
+          else
+              break
+          fi
+      done
+  else
+      cd ~/camp
+  fi
+}
+alias ct='camp_top; pwd'
+
+function cat_root() {
+  camp_top $*
+  cd catalogs/* >/dev/null
+}
+alias cr='cat_root; pwd'
+
+function pages_root() {
+  cat_root $*
+  cd pages >/dev/null
+}
+alias pr='pages_root; pwd'
+
+function resources_root() {
+  camp_top $*
+  cd htdocs/resources
+}
+alias rr='resources_root'
+
+alias ci='~/bin/camp_list.sh'
+
+function what_camp() {
+  local c=$( camp_top $* 2> /dev/null; basename $( pwd ))
+  echo "$c"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+PS1="\h|\$( what_camp | awk 'sub(/[^0-9]+/,\"\")' )|\033[0;32m\$(parse_git_branch)\[\033[0m\]|\W \$ "
+
+function cat_path() {
+  path=$(pwd)
+  top=$(camp_top; pwd)
+  echo ${path#$top}
+}

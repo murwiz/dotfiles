@@ -1,0 +1,9 @@
+[user]
+        name = Jeff Boes
+        email = jeff@endpoint.com
+[alias]
+        ci = commit
+        dst = diff --stat
+        st = status
+        wu = log --stat origin..@{0}
+        wup = log -p origin..@{0}

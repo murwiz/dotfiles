@@ -1,0 +1,275 @@
+Host *
+ControlMaster yes
+ForwardX11 yes
+ForwardAgent yes
+ServerAliveInterval 60
+SendEnv LC_*
+
+Host citypassdev
+    Hostname camp.citypassdev.com
+
+Host jcamp
+    HostName camp.citypassdev.com
+    User jeff
+
+Host camp
+    HostName camp.citypassdev.com
+    User camp
+
+Host camp0
+    HostName camp.citypassdev.com
+    User staging
+
+Host citypass
+    HostName sl22.endpoint.com
+    User citypass
+
+Host city
+    HostName sl22.endpoint.com
+    User citypass
+
+Host potomac
+    Hostname sl4.endpoint.com
+    User potomac
+
+Host localhost
+    StrictHostKeyChecking no
+
+Host college
+    User jlavin
+    Hostname sl38.endpoint.com
+
+Host victor
+    Hostname sl11.endpoint.com
+    User carl
+
+Host gourmet
+    Hostname sl11.endpoint.com
+    User gourmet
+    ProxyCommand ssh -Aq jeff@sl5.endpoint.com nc -w 180 %h %p
+
+Host thelpa
+    User thelpa
+    Hostname sl32.endpoint.com
+
+Host lpacamp
+    User jeff
+    Hostname sl32.endpoint.com
+
+Host nbp
+    User jeff
+    Hostname ln8.endpoint.com
+
+Host hydro
+    Hostname sl11.endpoint.com
+    User hydro
+    ProxyCommand ssh -Aq jeff@sl5.endpoint.com nc -w 180 %h %p
+
+Host suscon
+    Hostname suspensionconnection.com
+    User suscon
+    ProxyCommand ssh -Aq jeff@sl5.endpoint.com nc -w 180 %h %p
+
+Host pennherb
+    Hostname pennherb.com
+    User root
+    ProxyCommand ssh -Aq jeff@central.endpoint.com nc -w 180 %h %p
+
+Host rjm
+    Hostname sl21.endpoint.com
+    User jeff
+
+Host pilgrim
+    Hostname sl11.endpoint.com
+    User pilgrims
+
+Host feedroller
+    Hostname sl16.endpoint.com
+    User feedroller
+
+Host delta
+    Hostname sl11.endpoint.com
+    User tape
+
+Host armygear
+    Hostname sl11.endpoint.com
+    User armygear
+
+Host bikes
+    Hostname camp.bikes2udirect.com
+Host oldbikes
+    User oldbikes
+    Hostname s2.host7.co.uk
+
+Host recchiuti
+    Hostname sl11.endpoint.com
+    User recchiuti
+
+Host toner
+    Hostname sl16.endpoint.com
+    User toner
+
+Host popcorn_dev
+    User popcorn_dev
+    Hostname 479popcorn.com
+
+Host popcorn
+    User interch
+    Hostname 479popcorn.com
+
+Host odincamp
+    Hostname camps.odindev.com
+
+Host salisbury
+    User salisbury
+    HostName sl4.endpoint.com
+
+Host cci_0
+    User cci_staging
+    Hostname sl4.endpoint.com
+
+Host cci
+    User ccibeauty
+    Hostname ln23.endpoint.com
+
+Host science
+    User science
+    Hostname sl4.endpoint.com
+
+Host pyacht
+    User pyacht
+    Hostname sl11.endpoint.com
+
+Host mcfcamp
+    User jboes
+    Hostname v11.mcfapps.com
+    ProxyCommand ssh -Aq jeff@sl5.endpoint.com nc -w 180 %h %p
+
+Host frozen
+    Hostname camp.frozencpu.com
+
+Host wop
+    User wop
+    Hostname sl17.endpoint.com
+
+Host mcdealer
+    User mcdealer
+    Hostname sl17.endpoint.com
+
+Host lightspeed
+    User lightspeed
+    Hostname ln27.endpoint.com
+
+Host lensd
+    User mark
+    Hostname hetzner1.ldvision.com
+
+Host mailbox
+    User mailbox
+    Hostname genesis.capstoneworks.com
+    Port 9444
+Host dev_mailbox
+    User mailboxguy
+    Hostname vm216.endpoint.com
+
+
+#==================================================================
+Host banshee
+        User jeff
+#==================================================================
+
+Host ln8
+    HostName ln8.endpoint.com
+
+Host ln20
+    HostName ln20.endpoint.com
+
+Host ln27
+    HostName ln27.endpoint.com
+    User wop
+
+Host sl4
+    HostName sl4.endpoint.com
+
+Host sl5
+    HostName intranet.endpoint.com
+
+Host sl22
+    Hostname sl22.endpoint.com
+
+Host sl4
+    Hostname sl4.endpoint.com
+
+Host sl5
+    Hostname sl5.endpoint.com
+
+Host sl11
+    Hostname sl11.endpoint.com
+
+Host sl16
+    Hostname sl16.endpoint.com
+
+Host sl17
+    Hostname sl17.endpoint.com
+
+Host sl21
+    Hostname sl21.endpoint.com
+
+Host sl38
+    Hostname sl38.endpoint.com
+
+Host vm203
+    User jeff
+    Hostname vm203.endpoint.com
+    ProxyCommand ssh -Aq jeff@sl5.endpoint.com nc -w 180 %h %p
+Host vm209
+    User jeff
+    Hostname vm209.endpoint.com
+Host m59
+    User mark
+    Hostname sl38.endpoint.com
+
+Host central
+    Hostname central.endpoint.com
+
+## 3-tier McFapps MCF
+Host mcfapps-web mcfapps-web01 mcfapps-dev-web01
+    User ep-user
+    Hostname 54.88.115.126
+    Port 2242
+    ProxyCommand ssh -qA jeff@sl5.endpoint.com nc -w 180 %h %p
+    ForwardAgent yes
+Host mcfapps-app mcfapps-app01 mcfapps-dev-app01
+    User ep-user
+    Hostname 54.88.115.126
+    Port 2250
+    ProxyCommand ssh -qA jeff@sl5.endpoint.com nc -w 180 %h %p
+    ForwardAgent yes
+Host mcfapps-db mcfapps-db01 mcfapps-dev-db01
+    User ep-user
+    Hostname 54.88.115.126
+    Port 2213
+    ProxyCommand ssh -qA jeff@sl5.endpoint.com nc -w 180 %h %p
+    ForwardAgent yes
+Host gol-v11
+    User root2
+    Hostname v11.mcfapps.com
+    ProxyCommand ssh -qA jeff@sl5.endpoint.com nc -w 180 %h %p
+    ForwardAgent yes
+
+Host rwprod
+    User ec2-user
+    Hostname 54.88.115.126
+    Port 2250
+    ProxyCommand ssh -qA jeff@sl5.endpoint.com nc -w 180 %h %p
+    ForwardAgent yes
+
+Host aws
+    User root
+    Hostname kim.perusion.com
+
+Host robin
+    User root
+    Hostname robin.perusion.com
+    ProxyCommand ssh -qA root@kim.perusion.com nc -w 180 %h %p
+    ForwardAgent yes
