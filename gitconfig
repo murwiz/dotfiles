@@ -1,9 +1,41 @@
 [user]
-        name = Jeff Boes
-        email = jeff@endpoint.com
+    name = Jeff Boes
+    email = jeff@endpoint.com
 [alias]
-        ci = commit
-        dst = diff --stat
-        st = status
-        wu = log --stat origin..@{0}
-        wup = log -p origin..@{0}
+    ci = commit
+    dst = diff --stat HEAD
+    st = status
+    wu = log --stat origin..@{0}
+    wup = log -p origin..@{0}
+    unstage = reset HEAD
+	staged = diff --cached
+	unstaged = diff
+	both = diff HEAD
+	oneline = log --pretty=oneline
+    df = diff
+    lg = log -p
+[gc]
+	auto = 0
+
+[color]
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = true
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+#[color]
+#    ui = true
+[color "diff"]
+    whitespace = red reverse
+[core]
+   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[push]
+	default = simple
