@@ -15,6 +15,7 @@
 	oneline = log --pretty=oneline
     df = diff
     lg = log -p
+    recent = log --oneline --since=2.weeks
 [gc]
 	auto = 0
 
