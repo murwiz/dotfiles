@@ -3,6 +3,16 @@
 
 ;; .emacs
 
+(require 'package)
+
+;; Add melpa package source when using package list
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+
+;; Load emacs packages and activate them
+;; This must come before configurations of installed packages.
+;; Don't delete this line.
+(package-initialize)
+
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
@@ -129,15 +139,20 @@
 ;(set-cursor-size                  88)
 ; select colors for improved retinal lifetime
 
-;(require 'color-theme)
-(require 'color-theme-solarized)
-(eval-after-load "color-theme"
-  '(progn
-     ;(color-theme-initialize)
-     (color-theme-solarized-dark)))
+;(add-to-list 'load-path "~/site-lisp/emacs-color-theme-solarized-master")
+(if
+    (equal 0 (string-match "^24" emacs-version))
+    ;; it's emacs24, so use built-in theme
+    (require 'solarized-dark-theme)
+  ;; it's NOT emacs24, so use color-theme
+  (progn
+    (require 'color-theme)
+    (color-theme-initialize)
+    (require 'color-theme-solarized)
+    (color-theme-solarized-dark)))
 
-(set-frame-height (selected-frame) 52)
-(set-frame-width (selected-frame) 120)
+;(set-frame-height (selected-frame) 52)
+;(set-frame-width (selected-frame) 120)
 (setq frame-title-format
       '(:eval
         (if buffer-file-name
@@ -286,13 +301,19 @@
  (setq cperl-merge-trailing-else nil)
 (add-hook 'cperl-mode-hook '(lambda () (cperl-set-style "BSD")))
 (custom-set-variables
- '(cperl-indent-level 4)
- '(cperl-tab-always-indent t)
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(cperl-close-paren-offset -4)
- '(cperl-merge-trailing-else nil)
  '(cperl-continued-statement-offset 4)
+ '(cperl-indent-level 4)
  '(cperl-indent-parens-as-block t)
- )
+ '(cperl-merge-trailing-else nil t)
+ '(cperl-tab-always-indent t)
+ '(custom-safe-themes
+   (quote
+    ("a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default))))
 
 (defun perltidy-region ()
     "Run perltidy on the current region."
@@ -451,10 +472,10 @@
 ;(require 'crypt)
 
 ; mmm-mode
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
+;(add-to-list 'load-path "/usr/local/share/emacs/site-lisp")
 ;(require 'mmm-mode)
-(require 'mmm-auto)
-(setq mmm-global-mode 'maybe)
+;(require 'mmm-auto)
+;(setq mmm-global-mode 'maybe)
 
 ;(require 'visws)
 
@@ -548,3 +569,9 @@
 "*Run ´grep´ via ´find´ on the marked (or next prefix ARG) directories." t) 
 
 (put 'narrow-to-region 'disabled nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
