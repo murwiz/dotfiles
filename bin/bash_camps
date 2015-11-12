@@ -2,11 +2,11 @@ function camp_top() {
   if [ -n "$1" ]
   then
       cd ~/camp${1}
-  elif [[ $(pwd) =~ 'camp' ]]
+  elif [[ $(pwd) =~ camp ]]
   then
-      until [[ $(basename $(pwd)) =~ '^camp[[:digit:]]+' ]]
+      until [[ $(basename $(pwd)) =~ ^camp[[:digit:]]+ ]]
       do
-          if [[ $(pwd) =~ 'camp' ]]
+          if [[ $(pwd) =~ camp ]]
           then
               cd ..
           else
