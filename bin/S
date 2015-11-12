@@ -1,0 +1,18 @@
+#!/bin/bash
+function what_camp() {
+  local c=$( camp_top $* 2> /dev/null; basename $( pwd ))
+  echo "$c"
+}
+if [ "$1" == "." ]
+then
+  camp=$(what_camp)
+  screen -x -S $camp || screen -S $camp
+elif [ -n "$1" ]
+then
+  screen -x -S $1 || screen -S $1
+elif [ -e /var/run/screen/S-$USER ]
+then
+  screen -ls
+else
+  screen -x -S $USER || screen -S $USER
+fi
