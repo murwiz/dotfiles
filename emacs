@@ -180,10 +180,10 @@
 (setq frame-title-format "%b")
 (setq icon-title-format "%f")
 
-(require 'resize-help-window)
-(help-window-resize-mode 1)
+;(require 'resize-help-window)
+;(help-window-resize-mode 1)
 
-(require 'cursor)
+;(require 'cursor)
 
 ;(defun insert-cursor ()             (set-cursor-color my-fg))
 ;(defun overwrite-cursor ()          (set-cursor-color my-mg))
@@ -213,18 +213,18 @@
 				 minor-mode-alist)))
 
 ;; Variable documentation support
-(require 'varaprop)
-(define-key help-map "\C-v" 'variable-apropos)
+;(require 'varaprop)
+;(define-key help-map "\C-v" 'variable-apropos)
 
 ;; Recent files on menu toolbar
 (require 'recentf)
 (recentf-mode)
 
 ;; Jiggle cursor on buffer switch
-(require 'jiggle)
-(jiggle-mode 0)
-(jiggle-searches-too 1)
-(global-set-key (read-kbd-macro "C-c C-SPC") 'jiggle-cursor)
+;(require 'jiggle)
+;(jiggle-mode 0)
+;(jiggle-searches-too 1)
+;(global-set-key (read-kbd-macro "C-c C-SPC") 'jiggle-cursor)
 
 ;; ishl mode
 
@@ -323,8 +323,8 @@
 (global-set-key "\M-t" `perltidy-region)
 
 ;; Generic mode
-(require 'generic-mode)
-(require 'generic-extras)
+;(require 'generic-mode)
+;(require 'generic-extras)
 
 ;; Text mode
 (setq default-major-mode 'text-mode)
@@ -452,10 +452,10 @@
 
 ;; Using diminished minor modes saves room on mode line
 ;; (needs to be near bottom to ensure all referenced modes loaded)
-(require 'diminish)
-(diminish 'abbrev-mode "Abv")
-(diminish 'jiggle-mode)
-(diminish 'mouse-avoidance-mode "M")
+;(require 'diminish)
+;(diminish 'abbrev-mode "Abv")
+;(diminish 'jiggle-mode)
+;(diminish 'mouse-avoidance-mode "M")
 
 (global-set-key (kbd "C-c C-d") 'kill-entire-line)
 
