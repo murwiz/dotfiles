@@ -2,7 +2,7 @@ ln -fsv "$HOME/dotfiles/gitconfig" ~/.gitconfig
 ln -fsv "$HOME/dotfiles/screenrc" ~/.screenrc
 ln -fsv "$HOME/dotfiles/emacs" ~/.emacs
 ln -fsv "$HOME/dotfiles/inputrc" ~/.inputrc
-(cd $HOME/bin; for x in $HOME/dotfiles/bin; do ln -fsv "$x" .; done)
+(cd $HOME/bin; for x in $HOME/dotfiles/bin/*; do ln -fsv "$x" .; done)
 grep -qi "dotfiles installed" ~/.bashrc
 if [ $? != 0 ]
 then
