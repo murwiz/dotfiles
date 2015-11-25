@@ -8,9 +8,9 @@ if [ $? != 0 ]
 then
   cat >>~/.bashrc <<'EOF'
 # dotfiles installed:
-for DOTFILE in `find $HOME/dotfiles/bash`
+for DOTFILE in `find $HOME/dotfiles/bash/*`
 do
-  [ -f “$DOTFILE” ] && source “$DOTFILE”
+  [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
 EOF
 fi
