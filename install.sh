@@ -17,5 +17,5 @@ fi
 crontab -l | grep -qi "dotfiles installed"
 if [ $? != 0 ]
 then
-  (crontab -l; echo "# dotfiles installed"; echo "0 0 * * * cd dotfiles; git pull") | crontab -
+  (crontab -l; echo "# dotfiles installed"; echo "0 0 * * * cd dotfiles; git pull -q") | crontab -
 fi
