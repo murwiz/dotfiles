@@ -1,6 +1,6 @@
 [user]
     name = Jeff Boes
-    email = jeff@endpoint.com
+    email = jboes@ziprecruiter.com
 [alias]
     ci = commit
     dst = diff --stat HEAD
