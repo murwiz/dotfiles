@@ -32,7 +32,7 @@ export LESS="-x4 -M -X -F -Q -W -R"
 export ACK_OPTIONS='-i --nocolor'
 
 # Tell grep to highlight matches
-export GREP_OPTIONS='—color=auto'
+export GREP_OPTIONS='--color=auto'
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob 
 # Autocorrect typos in path names when using `cd`
