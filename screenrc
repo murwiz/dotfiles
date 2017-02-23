@@ -1,1 +1,2 @@
 caption always "%{kB}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kB}%?%+Lw%?     %c %t %H %LD, %M %d, %Y"
+shell -/bin/bash
