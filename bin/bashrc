@@ -15,7 +15,6 @@ export PAGER=less
 export LESS="-x4 -M -X -F -Q -W -R"
 export ACK_OPTIONS='-i --nocolor'
 
-alias psql='/usr/bin/psql >/dev/null || ~camp/bin/psql_camp'
 alias ..='cd ..'
 alias l='ls -Fartl'
 alias ss='du -sh * 2>/dev/null|perl -ne'\''BEGIN{%h=(k=>1,M=>2,G=>3)}push@F,$_;END{print map{$_->[0]}sort{$h{$a->[2]}<=>$h{$b->[2]}or$a->[1]<=>$b->[1]}map{[$_,/^([\d.]+)(.)/]}@F;}'\'''
@@ -24,7 +23,4 @@ function lstoday() {
   find ${2:-.} -maxdepth 1 -name ${3:-\*} -mtime -${1:-1} -ls
 }
 
-# Source campy definitions
-if [ -f ~/.bash_camps ]; then
-	. ~/.bash_camps
-fi
+export PS1='[\u@\h ${PWD#"${PWD%/*/*}/"}$(__git_ps1 " (%s)")]\n\$ '
