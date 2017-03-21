@@ -23,4 +23,3 @@ function lstoday() {
   find ${2:-.} -maxdepth 1 -name ${3:-\*} -mtime -${1:-1} -ls
 }
 
-export PS1='[\u@\h ${PWD#"${PWD%/*/*}/"}$(__git_ps1 " (%s)")]\n\$ '
