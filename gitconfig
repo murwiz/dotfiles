@@ -2,6 +2,7 @@
     name = Jeff Boes
     email = jboes@ziprecruiter.com
 [alias]
+    bs = branch -vv
     cho = checkout
     ci = commit
     dst = diff --stat HEAD
