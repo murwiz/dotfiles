@@ -10,7 +10,7 @@
     s  = status --short --branch
     wu = log --stat origin..@{0}
     wup = log -p origin..@{0}
-    wst = diff --stat origin..@{0}
+    wst = diff --stat origin...
     unstage = reset HEAD
 	  staged = diff --cached
 	  unstaged = diff
