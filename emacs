@@ -1,3 +1,4 @@
+(setq load-path (cons "/Users/jboes/site-lisp" load-path))
 (setq rcs-active nil)
 (setq vc-handled-backends nil)
 
@@ -16,11 +17,11 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-;; Use the predefined fontset 
+;; Use the predefined fontset
 ;"fontset-standard"
-;(set-face-font 'default "fontset-standard")
+                                        ;(set-face-font 'default "fontset-standard")
 
-;; End Point customizations
+;(set-face-attribute 'default t :font "Droid Sans Mono-14")
 
 ;; Always end a file with a newline
 (setq require-final-newline t)
@@ -31,8 +32,8 @@
 ;; No ~/.saves-pid-host files
 (setq auto-save-list-file-prefix nil)
 
-;; 4-space tab indents
-(setq-default tab-width 4)
+;; 2-space tab indents
+(setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 
 (put 'upcase-region 'disabled nil)
@@ -78,7 +79,6 @@
 
 ;; My customizations (some are overrides of the above)
 ;;(setq load-path (cons "/usr/share/emacs/22.0.50/lisp" load-path))
-(setq load-path (cons "~/site_lisp" load-path))
 
 ;; No backup files (file~)
 (setq make-backup-files nil)
@@ -112,6 +112,7 @@
 ;(setq lpr-command "c:\\bin\\uxutl\\pr.exe")
 (setq lpr-add-switches nil)
 
+
 ;; Emacs server
 ;(require 'gnuserv)
 ;(gnuserv-start)
@@ -125,14 +126,14 @@
 ; "-*-lucidatypewriter-medium-r-*-*-14-100-*-*-*-*-*-*")
 ;(set-face-font 'default
 ;	       "-*-lucidatypewriter-medium-r-*-*-14-100-*-*-*-*-*-ansi")
-;(set-face-font 'bold 
+;(set-face-font 'bold
 ;	       "-*-lucidatypewriter-bold-r-*-*-14-100-*-*-*-*-*-ansi")
 ;(set-face-font 'italic
 ;	       "-*-lucidatypewriter-medium-i-*-*-14-100-*-*-*-*-*-ansi")
-;(set-face-font 'bold-italic 
+;(set-face-font 'bold-italic
 ;	       "-*-lucidatypewriter-bold-i-*-*-14-100-*-*-*-*-*-ansi")
 
-;(setq initial-frame-alist 
+;(setq initial-frame-alist
 ;      '((top . 60) (left . 240)))
 
 (setq current-font-narrow-width   79)
@@ -140,16 +141,16 @@
 ; select colors for improved retinal lifetime
 
 ;(add-to-list 'load-path "~/site-lisp/emacs-color-theme-solarized-master")
-(if
-    (equal 0 (string-match "^24" emacs-version))
-    ;; it's emacs24, so use built-in theme
-    (require 'solarized-dark-theme)
-  ;; it's NOT emacs24, so use color-theme
-  (progn
-    (require 'color-theme)
-    (color-theme-initialize)
-    (require 'color-theme-solarized)
-    (color-theme-solarized-dark)))
+;(if
+;    (equal 0 (string-match "^24" emacs-version))
+;    ;; it's emacs24, so use built-in theme
+;    (require 'solarized-dark-theme)
+;  ;; it's NOT emacs24, so use color-theme
+;  (progn
+;    (require 'color-theme)
+;    (color-theme-initialize)
+;    (require 'color-theme-solarized)
+;    (color-theme-solarized-dark)))
 
 ;(set-frame-height (selected-frame) 52)
 ;(set-frame-width (selected-frame) 120)
@@ -221,18 +222,24 @@
 (recentf-mode)
 
 ;; Jiggle cursor on buffer switch
-;(require 'jiggle)
-;(jiggle-mode 0)
-;(jiggle-searches-too 1)
-;(global-set-key (read-kbd-macro "C-c C-SPC") 'jiggle-cursor)
+(require 'jiggle)
+(jiggle-mode 0)
+(jiggle-searches-too 1)
+(global-set-key (kbd "C-c C-SPC") 'jiggle-cursor)
+(define-key global-map (kbd "C-c C-SPC") 'jiggle-cursor)
+(setq query-replace-highlight t)
+(setq search-highlight t)
+(defvar jiggle-how-many-times 20
+  "How many times (jiggle-cursor) does so.")
+(defvar jiggle-sit-for-how-long 0.5
+  "How many seconds (jiggle-cursor) pauses between cursor movements.")
 
 ;; ishl mode
 
-;(require 'ishl)
-;(ishl-mode)
+(require 'ishl)
+(ishl-mode)
 
-
-(add-to-list 'load-path "/home/jeff/site_lisp/guess-style")
+(add-to-list 'load-path "/Users/jboes/site-lisp/guess-style")
 (autoload 'guess-style-set-variable "guess-style" nil t)
 (autoload 'guess-style-guess-variable "guess-style")
 (autoload 'guess-style-guess-all "guess-style" nil t)
@@ -264,7 +271,7 @@
 ;(setq html-helper-build-new-buffer t)
 
 ;; Insert address
-(setq html-helper-address-string 
+(setq html-helper-address-string
   "<a href=\"your_URL\">your_name &lt;your_e-mail_address&gt;</a>")
 
 ;; Enable time stamp
@@ -285,9 +292,12 @@
 (setq c-label-offset -2)
 (setq c-auto-newline t)
 (setq comment-multi-line t)
+(setq mac-command-modifier 'ctrl)
+(setq mac-option-modifier 'meta)'
 
 ;; Perl mode
 (fset 'perl-mode 'cperl-mode)
+(defalias 'perl-mode 'cperl-mode)
 (add-hook 'cperl-mode-common-hook 'guess-style-guess-all)
 (autoload 'cperl-mode "cperl-mode" "alternate mode for editing Perl programs" t)
  (setq auto-mode-alist
@@ -305,9 +315,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(cperl-close-paren-offset -4)
- '(cperl-continued-statement-offset 4)
- '(cperl-indent-level 4)
+ '(cperl-close-paren-offset -2)
+ '(cperl-continued-statement-offset 2)
+ '(cperl-indent-level 2)
  '(cperl-indent-parens-as-block t)
  '(cperl-merge-trailing-else nil t)
  '(cperl-tab-always-indent t)
@@ -452,10 +462,10 @@
 
 ;; Using diminished minor modes saves room on mode line
 ;; (needs to be near bottom to ensure all referenced modes loaded)
-;(require 'diminish)
-;(diminish 'abbrev-mode "Abv")
-;(diminish 'jiggle-mode)
-;(diminish 'mouse-avoidance-mode "M")
+(require 'diminish)
+(diminish 'abbrev-mode "Abv")
+(diminish 'jiggle-mode)
+(diminish 'mouse-avoidance-mode "M")
 
 (global-set-key (kbd "C-c C-d") 'kill-entire-line)
 
@@ -544,29 +554,29 @@
 )
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; the igrep package 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; 
-(autoload (function igrep) "igrep" 
-"*Run ´grep´ PROGRAM to match EXPRESSION in FILES..." t) 
-(autoload (function igrep-find) "igrep" 
-"*Run ´grep´ via ´find´..." t) 
-(autoload (function dired-do-igrep) "igrep" 
-"*Run ´grep´ on the marked (or next prefix ARG) files." t) 
-(autoload (function dired-do-igrep-find) "igrep" 
-"*Run ´grep´ via ´find´ on the marked (or next prefix ARG) directories." t) 
-(autoload (function grep) "igrep" 
-"*Run ´grep´ PROGRAM to match EXPRESSION in FILES..." t) 
-(autoload (function egrep) "igrep" "*Run ´egrep´..." t) 
-(autoload (function fgrep) "igrep" "*Run ´fgrep´..." t) 
-(autoload (function agrep) "igrep" "*Run ´agrep´..." t) 
-(autoload (function grep-find) "igrep" "*Run ´grep´ via ´find´..." t) 
-(autoload (function egrep-find) "igrep" "*Run ´egrep´ via ´find´..." t) 
-(autoload (function fgrep-find) "igrep" "*Run ´fgrep´ via ´find´..." t) 
-(autoload (function agrep-find) "igrep" "*Run ´agrep´ via ´find´..." t) 
-(autoload (function dired-do-grep) "igrep" 
-"*Run ´grep´ on the marked (or next prefix ARG) files." t) 
-(autoload (function dired-do-grep-find) "igrep" 
-"*Run ´grep´ via ´find´ on the marked (or next prefix ARG) directories." t) 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; the igrep package
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(autoload (function igrep) "igrep"
+"*Run ´grep´ PROGRAM to match EXPRESSION in FILES..." t)
+(autoload (function igrep-find) "igrep"
+"*Run ´grep´ via ´find´..." t)
+(autoload (function dired-do-igrep) "igrep"
+"*Run ´grep´ on the marked (or next prefix ARG) files." t)
+(autoload (function dired-do-igrep-find) "igrep"
+"*Run ´grep´ via ´find´ on the marked (or next prefix ARG) directories." t)
+(autoload (function grep) "igrep"
+"*Run ´grep´ PROGRAM to match EXPRESSION in FILES..." t)
+(autoload (function egrep) "igrep" "*Run ´egrep´..." t)
+(autoload (function fgrep) "igrep" "*Run ´fgrep´..." t)
+(autoload (function agrep) "igrep" "*Run ´agrep´..." t)
+(autoload (function grep-find) "igrep" "*Run ´grep´ via ´find´..." t)
+(autoload (function egrep-find) "igrep" "*Run ´egrep´ via ´find´..." t)
+(autoload (function fgrep-find) "igrep" "*Run ´fgrep´ via ´find´..." t)
+(autoload (function agrep-find) "igrep" "*Run ´agrep´ via ´find´..." t)
+(autoload (function dired-do-grep) "igrep"
+"*Run ´grep´ on the marked (or next prefix ARG) files." t)
+(autoload (function dired-do-grep-find) "igrep"
+"*Run ´grep´ via ´find´ on the marked (or next prefix ARG) directories." t)
 
 (put 'narrow-to-region 'disabled nil)
 (custom-set-faces
@@ -575,3 +585,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(require 'crosshairs)
+(toggle-crosshairs-when-idle)
+(global-set-key [(control f12)] 'flash-crosshairs)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
