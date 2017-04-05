@@ -50,3 +50,7 @@
     pushInsteadOf = https://github.com/
     pushInsteadOf = http://github.com/
     pushInsteadOf = git://github.com/
+[log]
+	date = local
+[include]
+  path = ~/.gitconfig-local
