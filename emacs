@@ -248,8 +248,6 @@
 ;(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
 ;(setq auto-mode-alist (cons '("\.html$" . html-helper-mode) auto-mode-alist))
 ;(setq auto-mode-alist (cons '("\.htm$"  . html-helper-mode) auto-mode-alist))
-;; for MVC2 work
-;(setq auto-mode-alist (cons '("\.tst$"  . html-helper-mode) auto-mode-alist))
 (add-hook 'html-mode-common-hook 'guess-style-guess-all)
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
 (add-hook 'html-mode-hook
@@ -258,21 +256,6 @@
             ;;(setq indent-tabs-mode t)
             )
 )
-
-;(setq load-path (cons "path_to_html-helper-mode_directory" load-path))
-;(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
-;(setq auto-mode-alist (cons '("\\.html$" . html-helper-mode) auto-mode-alist))
-
-
-;; Recognize server-parsed HTML files
-(setq auto-mode-alist (cons '("\\.shtml$" . html-helper-mode) auto-mode-alist))
-
-;; Insert new document HTML template
-;(setq html-helper-build-new-buffer t)
-
-;; Insert address
-(setq html-helper-address-string
-  "<a href=\"your_URL\">your_name &lt;your_e-mail_address&gt;</a>")
 
 ;; Enable time stamp
 ;;(setq html-helper-do-write-file-hooks t)
@@ -302,8 +285,6 @@
 (autoload 'cperl-mode "cperl-mode" "alternate mode for editing Perl programs" t)
  (setq auto-mode-alist
       (append '(("\\.\\([pP][Llmh]\\|al\\|\\t\\)$" . cperl-mode))  auto-mode-alist ))
- (setq auto-mode-alist
-      (append '(("\\.cgi$" . cperl-mode))  auto-mode-alist ))
  (setq auto-mode-alist
       (append '(("\\.\\(sub\\|am\\|tag\\)$" . cperl-mode))  auto-mode-alist ))
  (setq interpreter-mode-alist (append interpreter-mode-alist
@@ -337,8 +318,12 @@
 ;(require 'generic-extras)
 
 ;; Text mode
-(setq default-major-mode 'text-mode)
+;(setq default-major-mode 'text-mode)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+;; Shell-script mode
+(setq default-major-mode 'shell-script-mode)
+(add-to-list 'auto-mode-alist '("\\.sh\\'" . shell-script-mode))
 
 ;; Fontifying and colorizing
 ;(eval-after-load "font-lock" '(require 'choose-color))
