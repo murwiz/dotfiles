@@ -1,6 +1,7 @@
 [user]
     name = Jeff Boes
     email = jboes@ziprecruiter.com
+
 [alias]
     bs = branch -vv
     cho = checkout
@@ -12,17 +13,26 @@
     wup = log -p origin..@{0}
     wst = diff --stat origin...
     unstage = reset HEAD
-	  staged = diff --cached
-	  unstaged = diff
-	  both = diff HEAD
-	  oneline = log --pretty=oneline
+    staged = diff --cached
+    unstaged = diff
+    both = diff HEAD
+    oneline = log --pretty=oneline
     df = diff
     lg = log -p
     recent = log --oneline --since=2.weeks
     contains = branch -r --contains
-[gc]
-	auto = 0
-
+    #done = !f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | }\; f
+    # Mark a file as "assume unchanged", which means that Git will treat it
+    # as though there are no changes to it even if there are. Useful for
+    # temporary changes to tracked files
+    assume = update-index --assume-unchanged
+    # Reverse the above
+    unassume = update-index --no-assume-unchanged
+    # Show the files that are currently assume-unchanged
+    assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+    la = "!git config -l | grep alias | cut -c 7- | sort"
+    ls = log --oneline
+    new = !sh -c 'git log $1@{1}..$1@{0} "${@:-HEAD}"'
 [color]
     ui = auto
     diff = auto
@@ -37,20 +47,22 @@
     added = yellow
     changed = green
     untracked = cyan
-#[color]
-#    ui = true
 [color "diff"]
     whitespace = red reverse
 [core]
    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[fetch]
+   prune=true
+[gc]
+  auto = 0
+[include]
+  path = ~/.gitconfig-local
+[log]
+  date = local
 [push]
-	default = simple
+  default = simple
 
 [url "git@github.com:"]
     pushInsteadOf = https://github.com/
     pushInsteadOf = http://github.com/
     pushInsteadOf = git://github.com/
-[log]
-	date = local
-[include]
-  path = ~/.gitconfig-local
