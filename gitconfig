@@ -33,6 +33,11 @@
     la = "!git config -l | grep alias | cut -c 7- | sort"
     ls = log --oneline
     new = !sh -c 'git log $1@{1}..$1@{0} "${@:-HEAD}"'
+    lg = log --graph
+    log-standup = !git log --since yesterday --author $(git config user.email) --pretty=short
+
+    # Find text in any commit ever
+    grep-all = !"f() { git rev-list --all | xargs git grep \"$@\"; }; f"
 [color]
     ui = auto
     diff = auto
