@@ -11,10 +11,17 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# navigation aliases
 alias ..='cd ..'
 alias ...="cd ../.."
 alias ....="cd ../../.."
+
+# git-related aliases
 alias cb=~/bin/set_current_branch.sh
+
+# other aliases
+alias diskspace="/usr/bin/du | /usr/bin/sort -n -r | /usr/bin/less"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
