@@ -3,14 +3,13 @@
 if [ "$1" == "." ]
 then
   top=$( basename $( pwd ))
-  screen -x -S $top || screen -S $top
+  screen -x -S $top || screen -S $top bash -l
 elif [ -n "$1" ]
 then
-  screen -x -S $1 || screen -S $1
+  screen -x -S $1 || screen -S $1 bash -l
 elif [ -e /var/run/screen/S-$USER ]
 then
   screen -ls
 else
-  screen -x -S $USER || screen -S $USER
+  screen -x -S $USER || screen -S $USER bash -l
 fi
-
