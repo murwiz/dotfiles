@@ -64,6 +64,8 @@
   path = ~/.gitconfig-local
 [log]
   date = local
+[pull]
+  rebase = true
 [push]
   default = simple
 
