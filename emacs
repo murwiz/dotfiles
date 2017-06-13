@@ -574,6 +574,8 @@
 (require 'crosshairs)
 (toggle-crosshairs-when-idle)
 (global-set-key [(control f12)] 'flash-crosshairs)
+;;;(add-hook 'buffer-list-update-hook 'recenter-top-bottom)
+;;;(add-hook 'buffer-list-update-hook 'flash-crosshairs)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq *is-a-mac* (eq system-type 'darwin))
