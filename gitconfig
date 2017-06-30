@@ -6,6 +6,7 @@
     bs = branch -vv
     cho = checkout
     ci = commit
+    cv = commit --verbose
     dst = diff --stat HEAD
     st = status
     s  = status --short --branch
@@ -68,7 +69,8 @@
   rebase = true
 [push]
   default = simple
-
+[rebase]
+	autosquash = true
 [url "git@github.com:"]
     pushInsteadOf = https://github.com/
     pushInsteadOf = http://github.com/
