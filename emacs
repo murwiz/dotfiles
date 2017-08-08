@@ -282,6 +282,7 @@
 (fset 'perl-mode 'cperl-mode)
 (defalias 'perl-mode 'cperl-mode)
 (add-hook 'cperl-mode-common-hook 'guess-style-guess-all)
+(add-hook 'cperl-mode-common-hook 'superword-mode)
 (autoload 'cperl-mode "cperl-mode" "alternate mode for editing Perl programs" t)
  (setq auto-mode-alist
       (append '(("\\.\\([pP][Llmh]\\|al\\|\\t\\)$" . cperl-mode))  auto-mode-alist ))
