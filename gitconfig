@@ -7,6 +7,7 @@
     cho = checkout
     ci = commit
     cv = commit --verbose
+    dor = diff origin...
     dst = diff --stat HEAD
     st = status
     s  = status --short --branch
@@ -57,6 +58,8 @@
     whitespace = red reverse
 [core]
    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[diff]
+   mnemonicprefix = true
 [fetch]
    prune=true
 [gc]
