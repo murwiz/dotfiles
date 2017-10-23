@@ -9,6 +9,7 @@
     cv = commit --verbose
     dor = diff origin...
     dst = diff --stat HEAD
+    pushf = push --force-with-lease
     st = status
     s  = status --short --branch
     wu = log --stat origin..@{0}
