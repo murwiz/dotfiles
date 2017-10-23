@@ -2,3 +2,5 @@ caption always "%{kB}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kB}%?%+Lw%?     %c %t %H %LD
 shell -/bin/bash
 setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 bind '/' eval "clear" "scrollback 0" "scrollback 15000"
+bind ^x
+bind x
