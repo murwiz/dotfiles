@@ -222,6 +222,7 @@
 (recentf-mode)
 
 ;; Jiggle cursor on buffer switch
+(defvar jiggle-mode)
 (require 'jiggle)
 (jiggle-mode 0)
 (jiggle-searches-too 1)
