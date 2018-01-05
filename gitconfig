@@ -12,6 +12,7 @@
     pushf = push --force-with-lease
     st = status
     s  = status --short --branch
+    t  = "!git status -s | while read mode file; do echo $mode $(stat -f \"m%t%Sm %N\" $file) $file; done | sort -rn | cut -f2-"
     wu = log --stat origin..@{0}
     wup = log -p origin..@{0}
     wst = diff --stat origin...
