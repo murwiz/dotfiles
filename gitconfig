@@ -84,3 +84,5 @@
     pushInsteadOf = https://github.com/
     pushInsteadOf = http://github.com/
     pushInsteadOf = git://github.com/
+[http]
+	postBuffer = 157286400
