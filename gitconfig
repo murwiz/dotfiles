@@ -87,3 +87,5 @@
     pushInsteadOf = git://github.com/
 [http]
 	postBuffer = 157286400
+[grep]
+	lineNumber = true
