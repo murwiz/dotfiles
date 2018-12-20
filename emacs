@@ -1,3 +1,4 @@
+(defvar jiggle-mode)
 (setq load-path (cons "/Users/jboes/site-lisp" load-path))
 (setq rcs-active nil)
 (setq vc-handled-backends nil)
