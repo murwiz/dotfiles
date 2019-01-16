@@ -13,7 +13,7 @@
     dor = diff origin...
     dst = diff --stat HEAD
     fixup = commit --amend -C HEAD
-    hist = log --all--decorate --graph --oneline
+    hist = log --all --decorate --graph --oneline
     la = "!git config -l | grep alias | cut -c 7- | sort"
     lg = log --graph
     lg = log -p
