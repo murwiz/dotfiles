@@ -89,3 +89,8 @@
 	postBuffer = 157286400
 [grep]
 	lineNumber = true
+[remote "origin"]
+    url = git@git.ziprecruiter.com:ZipRecruiter/ziprecruiter.git
+    tagOpt = --no-tags
+    fetch = +refs/heads/master:refs/remotes/origin/master
+    fetch = +refs/heads/jboes.*:refs/remotes/origin/jboes.*
