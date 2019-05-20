@@ -48,7 +48,7 @@
     # Find text in any commit ever
     grep-all = !"f() { git rev-list --all | xargs git grep \"$@\"; }; f"
 [color]
-    ui = auto
+  	ui = true
     diff = auto
     status = auto
     branch = auto
