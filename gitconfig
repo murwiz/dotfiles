@@ -3,6 +3,7 @@
     email = jboes@ziprecruiter.com
 
 [alias]
+    sh = show --oneline --stat
     both = diff HEAD
     bs = branch -vv
     cho = checkout
