@@ -12,6 +12,7 @@
     cv = commit --verbose
     df = diff
     dor = diff origin...
+    dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy | less --tabs=4 -RFX; }; f"
     dst = diff --stat HEAD
     fixup = commit --amend -C HEAD
     hist = log --all --decorate --graph --oneline

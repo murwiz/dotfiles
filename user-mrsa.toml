@@ -1,0 +1,2 @@
+common_volumes=["/user/jboes/.moralog_rc":/mount/mrlogrc:ro"]
+filter="grep -v -f /mount/mrlogrc"
